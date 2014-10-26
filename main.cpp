@@ -12,6 +12,10 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
+#if defined _MSC_VER
+#include <direct.h>
+#endif
+
 #include "bytes.h"
 #include "pac.h"
 #include "pac2.h"
@@ -238,7 +242,13 @@ int main(int argc, char* argv[])
 		dirname[len - 4] = '\0';
 	}
 	
-	if(mkdir(dirname, 0777) == 0)
+	#if defined _MSC_VER
+	int ret = _mkdir(dirname);
+	#else
+	int ret = mkdir(dirname, 0777);
+	#endif
+	
+	if(ret == 0)
 	{
 		cout << "ok\n";
 	}
