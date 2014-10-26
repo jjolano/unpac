@@ -2,8 +2,8 @@
 
 #include <stdint.h>
 
-#define PAC2_MAGIC1	0x47414D4544415420	// GAMEDAT
-#define PAC2_MAGIC2	0x50414332			// PAC2
+#define PAC2_MAGIC1	0x47414D4544415420ULL	// GAMEDAT
+#define PAC2_MAGIC2	0x50414332				// PAC2
 
 typedef struct {
 	uint64_t magic1;
