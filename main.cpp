@@ -12,7 +12,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 
-#if defined _MSC_VER
+#if defined _WIN32
 #include <direct.h>
 #endif
 
@@ -242,7 +242,7 @@ int main(int argc, char* argv[])
 		dirname[len - 4] = '\0';
 	}
 	
-	#if defined _MSC_VER
+	#if defined _WIN32
 	int ret = _mkdir(dirname);
 	#else
 	int ret = mkdir(dirname, 0777);
